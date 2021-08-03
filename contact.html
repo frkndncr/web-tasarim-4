@@ -1,0 +1,417 @@
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>İletişim Formu</title>
+</html>
+<style type="text/css">
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Style inputs */
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Style the container/contact section */
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+  
+  /* Create two columns that float next to eachother */
+  .column {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+    padding: 20px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+</style>
+<style type="text/css">
+
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      padding: 0;
+      margin: 0;
+    }
+    
+    small {
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.4);
+    }
+    
+    h1 {
+      text-align: center;
+      padding: 50px 0;
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: -1px;
+      color: inherit;
+      font-size: 40px;
+    }
+    
+    
+    h2 {
+      text-align: center;
+      font-size: 30px;
+      margin: 0;
+      font-weight: 300;
+      color: inherit;
+      padding: 50px;
+    }
+    
+    .center {
+      text-align: center;
+    }
+    
+    
+    section {
+      height: 100vh;
+    }
+    
+    /* NAVIGATION */
+    nav {
+      width: 100%;
+      margin: 0 auto;
+      background: rgb(0, 0, 0);
+      padding: 50px 0;
+      box-shadow: 0px 5px 0px #dedede;
+    }
+    
+    nav ul {
+      list-style: none;
+      text-align: center;
+    }
+    nav ul li {
+      display: inline-block;
+    }
+    nav ul li a {
+      display: block;
+      padding: 15px;
+      text-decoration: none;
+      color: #aaa;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin: 0 10px;
+    }
+    nav ul li a,
+    nav ul li a:after,
+    nav ul li a:before {
+      transition: all .5s;
+    }
+    nav ul li a:hover {
+      color: #555;
+    }
+    
+    
+    
+    /* stroke */
+    nav.stroke ul li a,
+    nav.fill ul li a {
+      position: relative;
+    }
+    nav.stroke ul li a:after,
+    nav.fill ul li a:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 0%;
+      content: '.';
+      color: transparent;
+      background: #333;
+      height: 1px;
+    }
+    nav.stroke ul li a:hover:after {
+      width: 100%;
+    }
+    
+    nav.fill ul li a {
+      transition: all 2s;
+    }
+    
+    nav.fill ul li a:after {
+      text-align: left;
+      content: '.';
+      margin: 0;
+      opacity: 0;
+    }
+    nav.fill ul li a:hover {
+      color: #023f1c;
+      z-index: 1;
+    }
+    nav.fill ul li a:hover:after {
+      z-index: -10;
+      animation: fill 1s forwards;
+      -webkit-animation: fill 1s forwards;
+      -moz-animation: fill 1s forwards;
+      opacity: 1;
+    }
+    
+    /* Circle */
+    nav.circle ul li a {
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    nav.circle ul li a:after {
+      display: block;
+      position: absolute;
+      margin: 0;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      content: '.';
+      color: transparent;
+      width: 1px;
+      height: 1px;
+      border-radius: 50%;
+      background: transparent;
+    }
+    nav.circle ul li a:hover:after {
+      -webkit-animation: circle 1.5s ease-in forwards;
+    }
+    
+    /* SHIFT */
+    nav.shift ul li a {
+      position:relative;
+      z-index: 1;
+    }
+    nav.shift ul li a:hover {
+      color: #91640F;
+    }
+    nav.shift ul li a:after {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      width: 100%;
+      height: 1px;
+      content: '.';
+      color: transparent;
+      background: #00ff0d;
+      visibility: none;
+      opacity: 0;
+      z-index: -1;
+    }
+    nav.shift ul li a:hover:after {
+      opacity: 1;
+      visibility: visible;
+      height: 100%;
+    }
+    
+    
+    /* Blend */
+    nav.blend ul li a {
+      position: relative;
+      border-radius: 5px;
+      overflow: hidden;
+      z-index: 1;
+    }
+    nav.blend ul li a:hover {
+      color: rgb(0, 0, 0);
+    }
+    nav.blend ul li a:before,
+    nav.blend ul li a:after {
+      position: absolute;
+      width: 0px;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      background: #D35400;
+      transition: all .5s;
+      margin: auto;
+      content: '.';
+      color: transparent;
+      z-index: -1;
+      opacity: 0.75;
+    }
+    nav.blend ul li a:before {
+      left: 0;
+    }
+    nav.blend ul li a:after {
+      right: 0;
+    }
+    
+    nav.blend ul li a:hover:after,
+    nav.blend ul li a:hover:before {
+      width: 100%;
+    }
+    
+    /* DROWN */
+    
+    nav.drown ul li a {
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    nav.drown ul li a:hover {
+      color: rgb(0, 0, 0);
+    }
+    
+    nav.drown ul li a:before {
+      background: rgb(7, 5, 5);
+      content: '.';
+      color: transparent;
+      position: absolute;
+      width: 500%;
+      top: 100px;
+      right: 300px;
+      height: 300px;
+      z-index: -1;
+    }
+    nav.drown ul li a:hover:before {
+      left: auto;
+      bottom: auto;
+      right: -50%;
+      top: 0;
+      background: #89C52B;
+    }
+    
+    
+    
+    /* Keyframes */
+    @-webkit-keyframes fill {
+      0% {
+        width: 0%;
+        height: 1px;
+      }
+      50% {
+        width: 100%;
+        height: 1px;
+      }
+      100% {
+        width: 100%;
+        height: 100%;
+        background: #2ECC71;
+      }
+    }
+    
+    /* Keyframes */
+    @-webkit-keyframes circle {
+      0% {
+        width: 1px;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        height: 1px;
+        z-index: -1;
+        background: rgb(233, 0, 0);
+        border-radius: 100%;
+      }
+      100% {
+        background: #aaa;
+        height: 5000%;
+        width: 5000%;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-radius: 0;
+      }
+    }
+    
+    
+    </style>
+    </head>
+    
+    <body>
+    
+      <nav class="shift">
+        <ul>
+          <li><a href="#">İnstagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Linkedin</a></li>
+          <li><a href="#">Youtube</a></li>
+        </ul>
+      </nav>
+    
+    </body>
+    </html>
+
+<div class="container">
+    <div style="text-align:center">
+      <h2>İletişim</h2>
+      <p>bize bir mesaj bırakın:</p>
+    </div>
+    <div class="row">
+      <div class="column">
+      </div>
+      <div class="column">
+        <form action="bitti.php" method="GET">
+          <label for="fname">Adınız</label>
+          <input type="text" id="fname" name="ad" placeholder="Adınız..">
+          <label for="lname">Soyadınız</label>
+          <input type="text" id="soyad" name="soyad" placeholder="Soyadınız..">
+          <label for="country">Ülke</label>
+          <select id="country" name="country">
+            <option value="australia">Avusturalya</option>
+            <option value="canada">Kanada</option>
+            <option value="usa">Amerika Birleşik Devletleri</option>
+            <option value="tr">Türkiye</option>
+            <option value="az">Azerbeycan</option>
+            <option value="uk">İngiltere</option>
+            <option value="fr">Fransa</option>
+            <option value="be">Belçika</option>
+            <option value="cn">Çin</option>
+            <option value="de">Almanya</option>
+            <option value="ru">Rusya</option>
+            <option value="sa">Suudi Arabistan</option>
+            <option value="it">İtalya</option>
+            <option value="ka">Katar</option>
+            <option value="ch">İsviçre</option>
+            <option value="ir">İran</option>
+          </select>
+          <label for="subject">Mesajınız</label>
+          <textarea id="subject" name="mesaj" placeholder="Mesajınızı Yazınız..." style="height:170px"></textarea>
+          <input type="submit" value="gönder">
+        </form>
+      </div>
+    </div>
+  </div>
+
